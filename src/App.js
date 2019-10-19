@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled, {ThemeProvider, createGlobalStyle} from 'styled-components'
+import {HomePage} from "./homepage/Homepage"
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    color: whitesmoke;
+    font-family: Georgia, serif;
+  }
+`
+
+const theme = {
+    primaryColor: '#3393FF',
+    secondaryColor: '#E7F2ff',
+    backgroundColor: '#4d4d4d',
+    primaryText: 'whitesmoke',
+    secondaryText: '#333'
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={theme}>
+        <ParallaxProvider scrollAxis='vertical'>
+          <HomePage/>
+        </ParallaxProvider>
+          <GlobalStyle/>
+      </ThemeProvider>
   );
 }
 
