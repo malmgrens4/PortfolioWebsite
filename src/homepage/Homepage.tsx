@@ -2,17 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import { Parallax } from 'react-scroll-parallax'
 import { VSplit } from "../vertical_split/VerticalSplit"
+import { Menu } from "../menu/basic_menu"
+import { CenterTile } from "../centertile/CenterTile";
+import camping from '../images/camping.jpg'
 import mountains from '../images/mountains.png'
 import moon from '../images/moon.png'
+
 import propic from '../images/profile_picture.png'
-import {Menu} from "../menu/basic_menu"
 
 const HomePageStyle = styled.div`
   position: absolute;
   display: flex;
   flex-flow: column;
   background-color: ${props => props.theme.primaryColor};
-  max-width:100%;
+  max-width: 100%;
 `
 
 const ParallaxSection = styled.div`
@@ -211,6 +214,19 @@ const ProjectsSection = {
     rightContent: (<RightPaneProjects/>)
 }
 
+const IntroSection = styled.div`
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: center;
+  background: url(${camping}); 
+  background-size: cover;
+  height: 100vh;
+`
+
+
+
+
 const testImage: string = './fractal_tree.png'
 const testBackground: string  = 'https://miro.medium.com/max/3840/1*_kL-szqqP_Xw4ChHyIsoww.jpeg';
 const testBackground2: string = 'https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/phoenix/15_Night_Camelback_from_MummyMtn_be017d0c-0452-41ca-926f-b38c0ce0205a.jpg'
@@ -218,24 +234,15 @@ export const HomePage = () => {
 
     return (
         <HomePageStyle>
-            <ParallaxSection>
-                <MoonContainer>
-                    <Moon>
-                        <Parallax y={['10', '-150']}>
-                            <img height="100" width="100"
-                                src={moon}
-                            />
-                        </Parallax>
-                    </Moon>
-                </MoonContainer>
-                <Parallax y={['0', '5']}>
-                    <img style={{}}
-                               height={'500px'}
-                               width={'100%'}
-                               src={mountains}/>
-                </Parallax>
-            </ParallaxSection>
-            <Menu/>
+            <IntroSection>
+                <CenterTile/>
+
+
+
+                <Menu/>
+
+            </IntroSection>
+
             <MainContent>
                 <VSplit {...AboutSection}/>
                 <VSplit {...ProjectsSection}/>
