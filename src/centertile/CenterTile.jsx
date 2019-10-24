@@ -6,6 +6,7 @@ import propic from '../images/profile_picture.png'
 import resume_logo from '../images/resume_logo.png'
 
 const TileContainer = styled.div`
+  position: absolute;
   display: flex;
   justify-self: center;
   align-self: center;

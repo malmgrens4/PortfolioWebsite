@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ReactNode, useEffect, useRef} from 'react'
 import styled from 'styled-components'
 import { Parallax } from 'react-scroll-parallax'
 import { VSplit } from "../vertical_split/VerticalSplit"
@@ -7,6 +7,8 @@ import { CenterTile } from "../centertile/CenterTile";
 import camping from '../images/camping.jpg'
 import mountains from '../images/mountains.png'
 import moon from '../images/moon.png'
+import flare_orange from '../images/flare.png'
+import flare_white from '../images/flare2.png'
 
 import propic from '../images/profile_picture.png'
 
@@ -225,19 +227,75 @@ const IntroSection = styled.div`
 `
 
 
+const getRandomFlares = (numFlares: number) => {
+    const flarePics = [flare_orange, flare_white];
+    // Randomly select x of each type of flare, then randomly assign them a depth
+    // the depth will determine the blur, closer = more blur
+    let flares = [];
+    for(let i = 0; i < numFlares; i++){
+        let x = (Math.random() * 100) + 1 + 'vw'
+        let y = (Math.random() * 100) + 1 + 'vh'
+        let depth = (Math.random() * 20) + 1;
+        let flare = flarePics[0]
+        flares.push(<Flare src={flare_orange} depth={depth} x={x} y={y}/>)
+    }
+    return flares
+}
+
+
+type FlareProps = {
+    src: string,
+    depth: number,
+    x: string,
+    y: string,
+}
+
+const Flare = ({src, depth, x, y}: FlareProps) => {
+
+    const depthConstant = 50;
+    const dimensionsScale = 200;
+    const width = dimensionsScale/depth + 'px'
+    const height = dimensionsScale/depth + 'px'
+
+    const negative = () => {
+        return Math.random() > .5 ? -1 : 1
+    }
+
+    const randomParallaxRange = (400/depth) + 20 * negative()
+    const parallaxRange = [-randomParallaxRange, randomParallaxRange];
+
+    const getBlur = () => {
+        return 'blur(' + (depthConstant / depth) + 'px' + ')';
+    }
+
+
+    return(
+        <Parallax y={parallaxRange}>
+            <FlareStyle src={src} style={{filter: getBlur(), width: width, height: height, left: x, top: y}}/>
+        </Parallax>
+    )
+
+}
+
+const FlareStyle = styled.img`
+    position: relative;
+`
+
 
 
 const testImage: string = './fractal_tree.png'
 const testBackground: string  = 'https://miro.medium.com/max/3840/1*_kL-szqqP_Xw4ChHyIsoww.jpeg';
 const testBackground2: string = 'https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/phoenix/15_Night_Camelback_from_MummyMtn_be017d0c-0452-41ca-926f-b38c0ce0205a.jpg'
 export const HomePage = () => {
+    const flares: ReactNode[] = getRandomFlares(30)
 
     return (
         <HomePageStyle>
             <IntroSection>
+
+                {flares.map((flare: React.ReactNode) => flare)}
+
                 <CenterTile/>
-
-
 
                 <Menu/>
 

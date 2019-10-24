@@ -6,25 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aba4014d-2e99-4674-9719-7f38830b1af8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.storybook/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/centertile/CenterTile.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/iconviews/IconView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Code.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/camping.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/computer-screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/github.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/linkin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/mail_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/resume_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.stories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menu/menu.stories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/flare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/flare2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/centertile/CenterTile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/centertile/CenterTile.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/homepage/Homepage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/homepage/Homepage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/basic_menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/basic_menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.52241594">
+    <splitter split-orientation="horizontal" split-proportion="0.5684931">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -54,13 +40,23 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/homepage/Homepage.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="11" selection-start-line="11" selection-end-line="11" />
+                <state relative-caret-position="350">
+                  <caret line="263" column="48" selection-start-line="263" selection-start-column="48" selection-end-line="263" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#25#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/images/flare.png">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/images/flare2.png">
+              <provider selected="true" editor-type-id="images" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -94,11 +90,6 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logo.svg">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/images/computer-screen.png">
               <provider selected="true" editor-type-id="images" />
             </entry>
@@ -127,8 +118,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/centertile/CenterTile.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="267">
-                  <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+                <state relative-caret-position="323">
+                  <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#25#0" expanded="true" />
                   </folding>
@@ -168,10 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>color</find>
-      <find>WelcomeText</find>
-      <find>.jp</find>
-      <find>ParallaxSection</find>
       <find>plugins</find>
       <find>border:</find>
       <find>width</find>
@@ -196,8 +183,12 @@
       <find>MainContent</find>
       <find>Intro</find>
       <find>IconView</find>
-      <find>IconSec</find>
       <find>Menu</find>
+      <find>IconSec</find>
+      <find>flare</find>
+      <find>flare_2</find>
+      <find>random</find>
+      <find>flareRef</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,16 +219,16 @@
         <option value="$PROJECT_DIR$/src/iconviews/CircleOfFriends.tsx" />
         <option value="$PROJECT_DIR$/src/iconviews/IconView.tsx" />
         <option value="$PROJECT_DIR$/src/menu/basic_menu.tsx" />
-        <option value="$PROJECT_DIR$/src/homepage/Homepage.tsx" />
         <option value="$PROJECT_DIR$/src/centertile/CenterTile.jsx" />
+        <option value="$PROJECT_DIR$/src/homepage/Homepage.tsx" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="351" />
     <option name="y" value="-8" />
     <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="height" value="1247" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -267,13 +258,7 @@
               <item name="stevenmalmgren.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="stevenmalmgren.com" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="centertile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="stevenmalmgren.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="stevenmalmgren.com" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="iconviews" type="462c0819:PsiDirectoryNode" />
+              <item name="homepage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="stevenmalmgren.com" type="b2602c69:ProjectViewProjectNode" />
@@ -365,12 +350,27 @@
       <option name="presentableId" value="Default" />
       <updated>1571110924036</updated>
       <workItem from="1571110925366" duration="1160000" />
-      <workItem from="1571112121468" duration="88607000" />
+      <workItem from="1571112121468" duration="101266000" />
     </task>
+    <task id="LOCAL-00001" summary="WIP new center welcome box and some positioning fixes">
+      <created>1571717395390</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571717395391</updated>
+    </task>
+    <task id="LOCAL-00002" summary="WIP new center welcome box and some positioning fixes">
+      <created>1571717473836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571717473836</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89767000" />
+    <option name="totallyTimeSpent" value="102426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -390,8 +390,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" sideWeight="0.49947312" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33719704" side_tool="true" visible="true" weight="0.16888888" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.66280293" visible="true" weight="0.16888888" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.33719704" side_tool="true" visible="true" weight="0.38222224" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.66280293" visible="true" weight="0.38222224" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -399,6 +399,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="WIP new center welcome box and some positioning fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP new center welcome box and some positioning fixes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/parallax/Parallax.tsx">
@@ -577,8 +581,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        <state relative-caret-position="255">
+          <caret line="15" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -592,20 +599,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homepage/Homepage.tsx">
+    <entry file="file://$PROJECT_DIR$/src/centertile/CenterTile.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="323">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/centertile/CenterTile.jsx">
+    <entry file="file://$PROJECT_DIR$/src/images/flare2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/flare.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homepage/Homepage.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="350">
+          <caret line="263" column="48" selection-start-line="263" selection-start-column="48" selection-end-line="263" selection-end-column="48" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
