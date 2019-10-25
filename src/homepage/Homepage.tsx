@@ -11,38 +11,13 @@ import flare_orange from '../images/flare.png'
 import flare_white from '../images/flare2.png'
 
 import propic from '../images/profile_picture.png'
+import {stringLiteral} from "@babel/types";
 
 const HomePageStyle = styled.div`
-  position: absolute;
   display: flex;
   flex-flow: column;
   background-color: ${props => props.theme.primaryColor};
   max-width: 100%;
-`
-
-const ParallaxSection = styled.div`
-  position: relative;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-flow: column;
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-`
-
-const MoonContainer = styled.div`
-  display: flex;
-  width: 100vw;
-  max-width: 100%;
-  justify-content: flex-end;
-  position: absolute;
-`
-
-const Moon = styled.div`
-  display: flex;
-  width: 60vw;
-  justify-content: center;
 `
 
 const MainContent = styled.div`
@@ -233,8 +208,11 @@ const getRandomFlares = (numFlares: number) => {
     // the depth will determine the blur, closer = more blur
     let flares = [];
     for(let i = 0; i < numFlares; i++){
-        let x = (Math.random() * 100) + 1 + 'vw'
-        let y = (Math.random() * 100) + 1 + 'vh'
+        // Make sure the width always falls withing the bounds so we don't have horizontal overflow
+        // Scale the number by the dimensions of the screen
+        // images are also pushing the menu off the screen id why
+        let x = (Math.random() * 80) + 20 + 'vw'
+        let y = (Math.random() * 80) + 20 + 'vh'
         let depth = (Math.random() * 20) + 1;
         let flare = flarePics[0]
         flares.push(<Flare src={flare_orange} depth={depth} x={x} y={y}/>)
@@ -253,7 +231,7 @@ type FlareProps = {
 const Flare = ({src, depth, x, y}: FlareProps) => {
 
     const depthConstant = 50;
-    const dimensionsScale = 200;
+    const dimensionsScale = 150;
     const width = dimensionsScale/depth + 'px'
     const height = dimensionsScale/depth + 'px'
 
@@ -261,7 +239,7 @@ const Flare = ({src, depth, x, y}: FlareProps) => {
         return Math.random() > .5 ? -1 : 1
     }
 
-    const randomParallaxRange = (400/depth) + 20 * negative()
+    const randomParallaxRange = (300/depth) + 20 * negative()
     const parallaxRange = [-randomParallaxRange, randomParallaxRange];
 
     const getBlur = () => {
@@ -281,23 +259,36 @@ const FlareStyle = styled.img`
     position: relative;
 `
 
+const FlareContainer = styled.div`
+  position: absolute;
+  max-width: 100%;
+  height: 100vh;
+`
 
+const MainMenuContainer = styled.div`
+  justify-self: center;
+  align-self: center;
+`
 
-const testImage: string = './fractal_tree.png'
-const testBackground: string  = 'https://miro.medium.com/max/3840/1*_kL-szqqP_Xw4ChHyIsoww.jpeg';
-const testBackground2: string = 'https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/phoenix/15_Night_Camelback_from_MummyMtn_be017d0c-0452-41ca-926f-b38c0ce0205a.jpg'
+const FlexGrow = styled.div`
+  flex-grow: 1;
+`
+
 export const HomePage = () => {
     const flares: ReactNode[] = getRandomFlares(30)
 
     return (
         <HomePageStyle>
             <IntroSection>
-
-                {flares.map((flare: React.ReactNode) => flare)}
+                <FlareContainer>
+                    {flares.map((flare: React.ReactNode) => flare)}
+                </FlareContainer>
 
                 <CenterTile/>
-
-                <Menu/>
+                <FlexGrow/>
+                <MainMenuContainer>
+                    <Menu/>
+                </MainMenuContainer>
 
             </IntroSection>
 

@@ -13,7 +13,6 @@ const TileContainer = styled.div`
   flex-flow: column;
   width: 75vh;
   height: 40vh;
-  border: 2px solid black;
 `
 
 const ProfileHeader = styled.div`
