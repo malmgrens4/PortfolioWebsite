@@ -6,11 +6,15 @@ const Container = styled.div`
   flex-grow: 1;
 `
 
-const IconViewContainer = styled.div`
+const IconViewContainer = styled.a`
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-content: center;
+  padding: 1em;
+  a{
+    unset: all;
+  }
 `
 
 const IconStyle = styled.img`
@@ -28,7 +32,7 @@ const LabelStyle = styled.div`
 const Label = styled.div`
   justify-self: flex-start;
   align-self: center;
-  padding-left: 1em;
+  padding-left: .5em;
   font-size: .9em;
 `
 
@@ -41,17 +45,15 @@ type IconViewProps = {
 export const IconView = ({src, link, label}: IconViewProps) => {
     return (
         <Container>
-            <a href={link}>
-                <IconViewContainer>
-                    <IconStyle src={src}/>
-                    {label ?
-                        <LabelStyle>
-                            <Label>{label}</Label>
-                        </LabelStyle>
-                        : ''
-                    }
-                </IconViewContainer>
-            </a>
+            <IconViewContainer href={link}>
+                <IconStyle src={src}/>
+                {!!label ?
+                    <LabelStyle>
+                        <Label>{label}</Label>
+                    </LabelStyle>
+                    : ''
+                }
+            </IconViewContainer>
         </Container>
     )
 }

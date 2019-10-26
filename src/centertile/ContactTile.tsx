@@ -25,7 +25,6 @@ const SubmitFormContainer = styled.div`
    justify-content: flex-start;
    align-content: center;
    background-color: ${props => props.theme.primaryColor};
-   border: 1px solid pink;
 `
 
 const SubmitForm = styled(FormControl)`
@@ -57,6 +56,21 @@ export const ContactTile = () => {
                     <TextField
                         id="standard-with-placeholder"
                         label="Email"
+                        margin="normal"
+                        type="Email"
+                    />
+                    <h4>Or</h4>
+                    <TextField
+                        id="standard-with-placeholder"
+                        label="Phone Number"
+                        margin="normal"
+                        type="phone"
+                    />
+                    <TextField
+                        id="standard-multiline-static"
+                        label="Reason for contact"
+                        multiline
+                        rows="4"
                         margin="normal"
                     />
                 </SubmitForm>

@@ -1,17 +1,17 @@
-import React, {ReactNode, useEffect, useRef} from 'react'
+import React, {ReactNode, useEffect} from 'react'
 import styled from 'styled-components'
 import { Parallax } from 'react-scroll-parallax'
 import { VSplit } from "../vertical_split/VerticalSplit"
 import { Menu } from "../menu/basic_menu"
 import { CenterTile } from "../centertile/CenterTile";
 import camping from '../images/camping.jpg'
-import mountains from '../images/mountains.png'
-import moon from '../images/moon.png'
 import flare_orange from '../images/flare.png'
 import flare_white from '../images/flare2.png'
 
 import propic from '../images/profile_picture.png'
 import {stringLiteral} from "@babel/types";
+import {ContactTile} from "../centertile/ContactTile";
+import {Button} from "@material-ui/core";
 
 const HomePageStyle = styled.div`
   display: flex;
@@ -198,7 +198,7 @@ const IntroSection = styled.div`
   justify-content: center;
   background: url(${camping}); 
   background-size: cover;
-  height: 100vh;
+  height: 120vh;
 `
 
 
@@ -208,14 +208,11 @@ const getRandomFlares = (numFlares: number) => {
     // the depth will determine the blur, closer = more blur
     let flares = [];
     for(let i = 0; i < numFlares; i++){
-        // Make sure the width always falls withing the bounds so we don't have horizontal overflow
-        // Scale the number by the dimensions of the screen
-        // images are also pushing the menu off the screen id why
-        let x = (Math.random() * 80) + 20 + 'vw'
-        let y = (Math.random() * 80) + 20 + 'vh'
-        let depth = (Math.random() * 20) + 1;
-        let flare = flarePics[0]
-        flares.push(<Flare src={flare_orange} depth={depth} x={x} y={y}/>)
+        let x = (Math.random() * 100) + 'vw'
+        let y = (Math.random() * 100) + 'vh'
+        let depth = (Math.random() * 5.5) + .9
+        let flare = flarePics[Math.floor(Math.random() * flarePics.length)]
+        flares.push(<Flare src={flare_white} depth={depth} x={x} y={y}/>)
     }
     return flares
 }
@@ -228,19 +225,32 @@ type FlareProps = {
     y: string,
 }
 
+const FlareParallax = styled(Parallax)`
+  position: absolute;  
+`
+
 const Flare = ({src, depth, x, y}: FlareProps) => {
 
-    const depthConstant = 50;
-    const dimensionsScale = 150;
+    const depthConstant = 20;
+    const dimensionsScale = 90;
+    const yScrollNumerator = 400;
+    const yScrollMin = 10;
+    const xScrollNumerator = 10;
+    const xScrollMin = 1;
     const width = dimensionsScale/depth + 'px'
     const height = dimensionsScale/depth + 'px'
 
     const negative = () => {
-        return Math.random() > .5 ? -1 : 1
+        return Math.random() <= .5 ? -1 : 1
     }
 
-    const randomParallaxRange = (300/depth) + 20 * negative()
-    const parallaxRange = [-randomParallaxRange, randomParallaxRange];
+    const yRandomParallaxScroll = (yScrollNumerator/depth + yScrollMin) * negative()
+    const yParallaxRange = [-yRandomParallaxScroll, yRandomParallaxScroll];
+
+    const xRandomParallaxScroll = (xScrollNumerator/depth + xScrollMin) * negative()
+    const xParallaxRange = [-xRandomParallaxScroll, xRandomParallaxScroll];
+
+
 
     const getBlur = () => {
         return 'blur(' + (depthConstant / depth) + 'px' + ')';
@@ -248,21 +258,26 @@ const Flare = ({src, depth, x, y}: FlareProps) => {
 
 
     return(
-        <Parallax y={parallaxRange}>
-            <FlareStyle src={src} style={{filter: getBlur(), width: width, height: height, left: x, top: y}}/>
-        </Parallax>
+        <FlareParallax y={yParallaxRange} x={xParallaxRange} styleOuter={{left: x, top: y}}>
+            <FlareStyle >
+                <img src={src} style={{filter: getBlur(), width: width, height: height}}/>
+            </FlareStyle>
+        </FlareParallax>
     )
 
 }
 
-const FlareStyle = styled.img`
-    position: relative;
+const FlareStyle = styled.div`
+  width: 100vw;
+  height: 100%;
 `
 
 const FlareContainer = styled.div`
   position: absolute;
   max-width: 100%;
-  height: 100vh;
+  height: 120vh;
+  width: 100vw;
+  overflow: hidden;
 `
 
 const MainMenuContainer = styled.div`
@@ -275,7 +290,7 @@ const FlexGrow = styled.div`
 `
 
 export const HomePage = () => {
-    const flares: ReactNode[] = getRandomFlares(30)
+    const flares: ReactNode[] = getRandomFlares(60)
 
     return (
         <HomePageStyle>
@@ -284,7 +299,8 @@ export const HomePage = () => {
                     {flares.map((flare: React.ReactNode) => flare)}
                 </FlareContainer>
 
-                <CenterTile/>
+                {/*<CenterTile/>*/}
+                <ContactTile/>
                 <FlexGrow/>
                 <MainMenuContainer>
                     <Menu/>
