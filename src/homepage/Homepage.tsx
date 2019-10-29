@@ -1,8 +1,9 @@
-import React, {ReactNode, useEffect} from 'react'
+import React, {ReactNode, useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { Parallax } from 'react-scroll-parallax'
 import { VSplit } from "../vertical_split/VerticalSplit"
 import { Menu } from "../menu/basic_menu"
+import ReactCardFlip from 'react-card-flip';
 import { CenterTile } from "../centertile/CenterTile";
 import camping from '../images/camping.jpg'
 import flare_orange from '../images/flare.png'
@@ -198,7 +199,9 @@ const IntroSection = styled.div`
   justify-content: center;
   background: url(${camping}); 
   background-size: cover;
+  flex-grow: 1;
   height: 120vh;
+  overflow: hidden;
 `
 
 
@@ -273,11 +276,9 @@ const FlareStyle = styled.div`
 `
 
 const FlareContainer = styled.div`
-  position: absolute;
+  position: relative;
   max-width: 100%;
-  height: 120vh;
   width: 100vw;
-  overflow: hidden;
 `
 
 const MainMenuContainer = styled.div`
@@ -289,8 +290,21 @@ const FlexGrow = styled.div`
   flex-grow: 1;
 `
 
+const Centered = styled.div`
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  height: 35vh;
+  padding-bottom: 50vh;
+`
+const flares: ReactNode[] = getRandomFlares(60)
+
 export const HomePage = () => {
-    const flares: ReactNode[] = getRandomFlares(60)
+
+    const [isFlipped, setIsFlipped] = useState(false)
+
+
 
     return (
         <HomePageStyle>
@@ -299,8 +313,16 @@ export const HomePage = () => {
                     {flares.map((flare: React.ReactNode) => flare)}
                 </FlareContainer>
 
-                {/*<CenterTile/>*/}
-                <ContactTile/>
+                <Centered>
+                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+                    <ContactTile onFlip={() => setIsFlipped(false)} key="back">
+                    </ContactTile>
+
+                    <CenterTile onFlip={() => setIsFlipped(true)} key="front">
+                    </CenterTile>
+
+                </ReactCardFlip>
+                </Centered>
                 <FlexGrow/>
                 <MainMenuContainer>
                     <Menu/>

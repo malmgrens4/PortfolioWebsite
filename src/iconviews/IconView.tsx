@@ -38,14 +38,15 @@ const Label = styled.div`
 
 type IconViewProps = {
     src: string
-    link: string
+    link?: string
     label?: string
+    onClick?: Function
 }
 
 export const IconView = ({src, link, label}: IconViewProps) => {
     return (
         <Container>
-            <IconViewContainer href={link}>
+            <IconViewContainer href={link} target="_blank">
                 <IconStyle src={src}/>
                 {!!label ?
                     <LabelStyle>

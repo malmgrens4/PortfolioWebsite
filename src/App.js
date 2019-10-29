@@ -53,6 +53,19 @@ const muiTheme = createMuiTheme({
             },
 
         },
+        MuiOutlinedInput: {
+            // Name of the rule
+            formControl: {
+                // Some CSS
+                color: theme.primaryText
+            },
+            root: {
+                color: theme.primaryText
+            },
+            input: {
+                color: theme.primaryText
+            },
+        },
         MuiTextField: {
             // Name of the rule
             root: {
