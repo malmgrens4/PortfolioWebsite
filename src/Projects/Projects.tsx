@@ -12,23 +12,7 @@ import Button from "@material-ui/core/Button";
 import telegram_logo from '../images/telegram_logo.png'
 import camping from '../images/camping.jpg'
 import {Parallax} from "react-scroll-parallax/cjs";
-
-
-
-type TitleProps = {
-    title:string
-}
-
-const TitleContainer = styled.div`
-  justify-self: center;
-  align-self: center;
-`
-
-const Title = styled.div`
-  font-size: 1em;
-  border-bottom: ${props => props.theme.secondaryColor} solid 2px;
-  padding: ${props => props.theme.spacing};
-`
+import {SectionTitle} from "../SectionTitle/SectionTitle";
 
 type ProjectProps = {
     title: string
@@ -43,19 +27,6 @@ const ProjectContainer = styled.div`
   align-self: center;
   text-align: center;
 `
-
-
-const SectionTitle = (props: TitleProps) => {
-    const {title} = props
-    return (
-        <TitleContainer>
-            <ScrollAnimation animateIn={'flipInX'} animateOut={'fadeOut'} animateOnce={true}>
-                <Title>{title}</Title>
-            </ScrollAnimation>
-        </TitleContainer>
-    )
-}
-
 
 type ProjectGridProps = {
     children: any[]
@@ -83,10 +54,8 @@ const ProjectGrid = (props: ProjectGridProps) => {
 
         <ProjectGridContainer>
             {children.map((project) => {return <GridItemContainer>
-
                                                                     {project}
-
-                                                            </GridItemContainer>})}
+                                                        </GridItemContainer>})}
         </ProjectGridContainer>
     )
 }
@@ -122,7 +91,7 @@ const ProjectImageContainer = styled.div`
 `
 
 const ProjectImage = styled.img`
-  max-height: 50vh;
+  max-height: 65vh;
   max-width: 100%;
 `
 
@@ -175,13 +144,13 @@ const ProjectTile = (props: ProjectTileProps) => {
 
 export const Projects = (props: ProjectProps) => {
     const projects = [ <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>,
-                       <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>,
+                       <ProjectTile img={camping} title={'Path Finder'} description={'Interactive web application to learn different pathing algorithms.'}/>,
                        <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>,
                        <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>];
 
     return(
         <ProjectContainer id='projects'>
-            <SectionTitle title={props.title}/>
+            <SectionTitle title={props.title} animateIn={'fadeIn'} animateOut={'fadeOut'}/>
             <ProjectGrid children={projects}/>
         </ProjectContainer>
     )

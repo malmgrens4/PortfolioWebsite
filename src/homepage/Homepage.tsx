@@ -8,11 +8,16 @@ import { CenterTile } from "../centertile/CenterTile";
 import camping from '../images/camping.jpg'
 import flare_orange from '../images/flare.png'
 import flare_white from '../images/flare2.png'
-
+import ScrollAnimation from 'react-animate-on-scroll';
 import propic from '../images/profile_picture.png'
 import {stringLiteral} from "@babel/types";
 import {ContactTile} from "../centertile/ContactTile";
 import {Button} from "@material-ui/core";
+import {BoxedText} from "../BoxedText/BoxedText";
+import {ScrollDownMarker} from "../ScrollDownMarker/ScrollDownMarker";
+import {About} from "../About/About";
+import {Projects} from "../Projects/Projects";
+import {Timeline} from "../Timeline/Timeline";
 
 const HomePageStyle = styled.div`
   display: flex;
@@ -23,14 +28,13 @@ const HomePageStyle = styled.div`
 
 const MainContent = styled.div`
   position: relative;
-  background: ${props => props.theme.primaryColor};
+  background: ${props => props.theme.gradient};
   width: 100%;
   display: flex;
   flex-flow: column;
 `
 
 const StickyContainer = styled.div`
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   display: flex;
@@ -67,7 +71,7 @@ const TitleText = styled.div`
   font-size: 3em;
 `
 
-const MenuContainer = styled.div`
+const BottomMenuContainer = styled.div`
   position: absolute;
   bottom: 0;
   align-content: center;
@@ -84,9 +88,9 @@ const LeftPaneAbout = () => {
             <LeftPaneAboutStyle>
                    <TitleText>About</TitleText>
             </LeftPaneAboutStyle>
-            <MenuContainer>
+            <BottomMenuContainer>
                 <Menu/>
-            </MenuContainer>
+            </BottomMenuContainer>
         </StickyContainer>
     )
 }
@@ -123,9 +127,9 @@ const LeftPaneProjects = () => {
         <StickyContainer>
             <LeftPaneProjectsStyle>
                 <TitleText>Projects</TitleText>
-            <MenuContainer>
+            <BottomMenuContainer>
                 <Menu/>
-            </MenuContainer>
+            </BottomMenuContainer>
             </LeftPaneProjectsStyle>
         </StickyContainer>
     )
@@ -197,10 +201,10 @@ const IntroSection = styled.div`
   flex-flow: column;
   align-content: center;
   justify-content: center;
-  background: url(${camping}); 
+  background: ${props => props.theme.primaryColor};
   background-size: cover;
   flex-grow: 1;
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
 `
 
@@ -300,39 +304,112 @@ const Centered = styled.div`
 `
 const flares: ReactNode[] = getRandomFlares(60)
 
+const TitleTextContainer = styled.div`
+    width: 25vw;
+    justify-self: center;
+    align-self: center;
+`
+
+const FirstMenuContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .MuiButton-textSecondary {
+    color: ${props => props.theme.primaryText};
+  }
+  
+`
+
+const ScrollMarkerContainer = styled.div`
+  position: absolute;
+  height: 8vh;
+  padding-left: 2em;
+  justify-content: flex-end;
+  align-self: flex-start;
+  bottom: 0;
+`
+
+const Section = styled.div`
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+`
+
+const AboutContainer = styled.div`
+  height: 100vh;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+`
+
+const AboutParallax = styled(Parallax)`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+`
+
+
+const TimelineContainer = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+`
+
 export const HomePage = () => {
 
     const [isFlipped, setIsFlipped] = useState(false)
 
-
-
     return (
         <HomePageStyle>
             <IntroSection>
-                <FlareContainer>
-                    {flares.map((flare: React.ReactNode) => flare)}
-                </FlareContainer>
+                <TitleTextContainer>
+                <ScrollAnimation animateIn='fadeIn'
+                                 animateOut='fadeOut'
+                                 initiallyVisible={false}>
+                    <BoxedText title={'Steven Malmgren'}/>
+                </ScrollAnimation>
+                </TitleTextContainer>
 
-                <Centered>
-                <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-                    <ContactTile onFlip={() => setIsFlipped(false)} key="back">
-                    </ContactTile>
-
-                    <CenterTile onFlip={() => setIsFlipped(true)} key="front">
-                    </CenterTile>
-
-                </ReactCardFlip>
-                </Centered>
-                <FlexGrow/>
-                <MainMenuContainer>
+                <ScrollAnimation animateIn='fadeIn'
+                                 animateOut='fadeOut'
+                                 initiallyVisible={false}>
+                    <FirstMenuContainer>
                     <Menu/>
-                </MainMenuContainer>
+                    </FirstMenuContainer>
+                </ScrollAnimation>
+
+                <ScrollAnimation animateIn='fadeIn'
+                                 initiallyVisible={false}
+                                 animateOnce={true}>
+                    <ScrollMarkerContainer>
+                        <ScrollDownMarker/>
+                    </ScrollMarkerContainer>
+                </ScrollAnimation>
 
             </IntroSection>
 
             <MainContent>
-                <VSplit {...AboutSection}/>
-                <VSplit {...ProjectsSection}/>
+                <Section>
+                    <AboutContainer>
+                        <AboutParallax y={[-20, 20]}>
+                            <About title={'About'}/>
+                        </AboutParallax>
+                    </AboutContainer>
+                </Section>
+                <Section>
+                    <TimelineContainer>
+                        <Timeline title={'Experience'}/>
+                    </TimelineContainer>
+                </Section>
+                <Section>
+                    <Projects title={'Projects'}/>
+                </Section>
             </MainContent>
 
         </HomePageStyle>

@@ -17,14 +17,17 @@ const GlobalStyle = createGlobalStyle`
 
 
 export const theme = {
-    primaryColor: '#2D4CBE',
-    secondaryColor: '#E7F2ff',
+    primaryColor: '#333',
+    secondaryColor: '#2D4CBE',
     backgroundColor: '#4d4d4d',
     primaryText: 'whitesmoke',
-    secondaryText: '#333',
+    secondaryText: 'whitesmoke',
+    largeFont: '2em',
+    spacing: '1.2em',
+    gradient: 'linear-gradient(#333, #2D4CBE)',
     input: {
         color: 'whitesmoke'
-    }
+    },
 }
 
 
