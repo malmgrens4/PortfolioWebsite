@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import telegram_logo from '../images/telegram_logo.png'
+import led from '../images/led.gif'
+import discord from '../images/discord_gif.gif'
 import camping from '../images/camping.jpg'
 import {Parallax} from "react-scroll-parallax/cjs";
 import {SectionTitle} from "../SectionTitle/SectionTitle";
@@ -82,6 +84,7 @@ const ProjectTileContainer = styled.div`
 const ProjectInfo = styled.div`
   justify-self: center;
   align-self: flex-end;
+  max-width: 50vw;
   margin-top: -10%;
   margin-right: 10%;
 `
@@ -91,6 +94,7 @@ const ProjectImageContainer = styled.div`
 `
 
 const ProjectImage = styled.img`
+  min-height: 65vh;
   max-height: 65vh;
   max-width: 100%;
 `
@@ -143,10 +147,10 @@ const ProjectTile = (props: ProjectTileProps) => {
 }
 
 export const Projects = (props: ProjectProps) => {
-    const projects = [ <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>,
+    const projects = [ <ProjectTile img={discord} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>,
                        <ProjectTile img={camping} title={'Path Finder'} description={'Interactive web application to learn different pathing algorithms.'}/>,
-                       <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>,
-                       <ProjectTile img={camping} title={'Beeven Bot'} description={'Discord Bot to manage live betting system.'}/>];
+                       <ProjectTile img={led} title={'LED Grid'} description={'Websocket updates to grid of leds.'}/>,
+                       <ProjectTile img={camping} title={'Untitled'} description={'I have to make up a project that sounds really impressive here.'}/>];
 
     return(
         <ProjectContainer id='projects'>

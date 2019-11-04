@@ -50,7 +50,7 @@ const LinkSplit = styled.div`
   align-items: center;
 `
 
-const menuItems = [{label: 'About', location: '#about'}, {label: 'Projects', location: '#projects'}, {label: 'Contact', location: '#projects'}];
+const menuItems = [{label: 'About', location: '#about'}, {label: 'Experience', location: '#experience'}, {label: 'Projects', location: '#projects'}, {label: 'Contact', location: '#projects'}];
 
 export const Menu = () => {
     return(
@@ -70,7 +70,6 @@ export const Menu = () => {
                                     </MenuItem>
                                 </ScrollLink>
                                 { i === menuItems.length - 1  ? '' : <LinkSplit><div>/</div></LinkSplit>}
-
                             </>
                         )
                     })

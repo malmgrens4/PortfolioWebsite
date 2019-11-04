@@ -7,7 +7,9 @@ import 'react-vertical-timeline-component/style.min.css';
 import {SectionTitle} from "../SectionTitle/SectionTitle";
 
 
-const TimelineContainer = styled.div`
+const TimelineContainer = styled.div` 
+  min-height: 100vh;
+  overflow-x: hidden;
   padding: 2em;
   display: flex;
   flex-flow: column;
@@ -38,7 +40,8 @@ const VTimelineElement = styled(VerticalTimelineElement)`
 `
 
 const VTimelineContainer = styled(VerticalTimeline)`
-  margin-top: 2em !important;
+  margin-top: 4em !important;
+  margin-bottom: 4em !important;
 `
 
 type TimelineProps = {
@@ -47,7 +50,7 @@ type TimelineProps = {
 
 export const Timeline = (props: TimelineProps) => {
     return(
-        <TimelineContainer>
+        <TimelineContainer id='experience'>
             <SectionTitle title={props.title} animateIn={'fadeIn'} animateOut={'fadeOut'}/>
             <VTimelineContainer>
                 <VTimelineElement

@@ -397,9 +397,7 @@ export const HomePage = () => {
             <MainContent>
                 <Section>
                     <AboutContainer>
-                        <AboutParallax y={[-20, 20]}>
-                            <About title={'About'}/>
-                        </AboutParallax>
+                        <About title={'About'}/>
                     </AboutContainer>
                 </Section>
                 <Section>
