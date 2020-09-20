@@ -111,7 +111,6 @@ export const CenterTile = ({onFlip}: TileProps) => {
                     <LinkButton onClick={onFlip}><IconView src={mail_logo}/></LinkButton>
                 </IconSection>
             </IconContainer>
-
         </TileContainer>
     )
 }

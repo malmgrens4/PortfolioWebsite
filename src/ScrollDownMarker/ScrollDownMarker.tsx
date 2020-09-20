@@ -18,6 +18,5 @@ export const ScrollDownMarker = () => {
         <ScrollContainer>
             <ScrollText>Scroll Down</ScrollText>
         </ScrollContainer>
-
     )
 }

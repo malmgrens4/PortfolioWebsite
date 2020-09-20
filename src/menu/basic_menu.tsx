@@ -50,9 +50,12 @@ const LinkSplit = styled.div`
   align-items: center;
 `
 
-const menuItems = [{label: 'About', location: '#about'}, {label: 'Experience', location: '#experience'}, {label: 'Projects', location: '#projects'}, {label: 'Contact', location: '#projects'}];
+const menuItems = [{label: 'About', location: '#about'}, {label: 'Experience', location: '#experience'}, {label: 'Projects', location: '#projects'}];
 
-export const Menu = () => {
+type Props = {
+    onContactClick?: () => void
+}
+export const Menu = ({onContactClick}: Props) => {
     return(
         <MenuBar>
             <Grid>
@@ -69,12 +72,21 @@ export const Menu = () => {
                                         </MenuTitle>
                                     </MenuItem>
                                 </ScrollLink>
-                                { i === menuItems.length - 1  ? '' : <LinkSplit><div>/</div></LinkSplit>}
+                                <LinkSplit><div>/</div></LinkSplit>
+
                             </>
                         )
                     })
 
                 }
+                    <ScrollLink >
+                    <MenuItem color="secondary" onClick={onContactClick}>
+                        <MenuTitle>
+                            Contact
+                        </MenuTitle>
+                    </MenuItem>
+                    </ScrollLink>
+
                 </ButtonGroup>
             </Grid>
         </MenuBar>

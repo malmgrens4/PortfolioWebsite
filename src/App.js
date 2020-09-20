@@ -5,8 +5,8 @@ import {HomePage} from "./homepage/Homepage"
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme"
 import {ThemeProvider as ThemeProviderMui} from '@material-ui/core/styles'
-import red from '@material-ui/core/colors/red';
-import {blueGrey, brown, deepOrange, lightBlue, orange} from "@material-ui/core/colors";
+import blue from '@material-ui/core/colors/blue';
+
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -33,66 +33,8 @@ export const theme = {
 
 const muiTheme = createMuiTheme({
     palette: {
-        primary: {
-            main: theme.secondaryColor,
-        },
-        secondary: {
-            main: theme.primaryColor,
-        },
-    },
-    overrides: {
-        // Style sheet name ⚛️
-        MuiInput: {
-            // Name of the rule
-            formControl: {
-                // Some CSS
-               color: theme.primaryText
-            },
-            root: {
-                color: theme.primaryText
-            },
-            input: {
-                color: theme.primaryText
-            },
-
-        },
-        MuiOutlinedInput: {
-            // Name of the rule
-            formControl: {
-                // Some CSS
-                color: theme.primaryText
-            },
-            root: {
-                color: theme.primaryText
-            },
-            input: {
-                color: theme.primaryText
-            },
-        },
-        MuiTextField: {
-            // Name of the rule
-            root: {
-                // Some CSS
-                color: theme.primaryText
-            },
-            focused: {
-                color: 'pink'
-            }
-        },
-        MuiFormLabel: {
-            root: {
-                color: theme.primaryText
-            },
-        },
-        MuiInputLabel: {
-            root: {
-                color: theme.primaryText
-            },
-            focused: {
-                color: theme.primaryText
-            }
-        }
-
+        type: "dark",
+        primary: blue,
     },
 });
 
